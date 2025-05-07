@@ -49,3 +49,22 @@ function processValue(value: string | number): number{
     }
     return value.length
 }
+
+interface Product {
+    name: string;
+    price: number;
+}
+function getMostExpensiveProduct(products: Product[]): Product | null{
+    if(products.length===0){
+        return null
+    }else{
+        let expensiveProduct = products[0];
+        products.forEach((item)=>{
+            if(item.price > expensiveProduct.price){
+                expensiveProduct = item
+            }
+        })
+        return expensiveProduct
+    }
+}
+
